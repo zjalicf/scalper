@@ -16,7 +16,7 @@ for i in range(0, 3):  # za nedelju 20161, za jedan dan 2881
                 k = j.text.replace(',', '')
                 a = k.replace('00 ', '')
                 cena = int(a.replace('€', ''))
-                if cena < 800 and 'gainward' not in name[count].text.casefold() and 'galax' not in name[count].text.casefold() and 'pny' not in name[count].text.casefold():
+                if cena < 800 and 'gainward' not in name[count].text.casefold() and 'galax' not in name[count].text.casefold() and 'pny' not in name[count].text.casefold() and 'palit' not in name[count].text.casefold():
                     account_sid = 'hidden'
                     auth_token = '0fac2f9027d4393ec08ad8fd0142905b'
                     client = Client(account_sid, auth_token)
