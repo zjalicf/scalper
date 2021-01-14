@@ -4,7 +4,7 @@ from time import sleep
 from twilio.rest import Client
 
 driver = webdriver.Chrome(executable_path=r"C:\chromedriver.exe")
-driver.get("https://www.winwin.rs/catalogsearch/result/?q=RTX+3060+Ti")
+driver.get("https://www.winwin.rs/catalogsearch/result/?q=RTX+3070")
 
 for i in range(0, 11):  # za nedelju 20161, za jedan dan 2881
     try:
@@ -23,7 +23,7 @@ for i in range(0, 11):  # za nedelju 20161, za jedan dan 2881
                 client = Client(account_sid, auth_token)
 
                 message = client.messages.create(
-                    body='Grafička kartica pronadjena!', from_='hidden', to='hidden')
+                    body='Grafička kartica pronadjena! - winwin', from_='hidden', to='hidden')
                 break
             else:
                 continue

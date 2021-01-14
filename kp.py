@@ -4,7 +4,7 @@ from time import sleep
 from twilio.rest import Client
 
 driver = webdriver.Chrome(executable_path=r"C:\chromedriver.exe")
-driver.get("https://is.gd/bSJ635")
+driver.get("https://is.gd/VlGg5L")
 
 for i in range(0, 3):  # za nedelju 20161, za jedan dan 2881
     try:
@@ -16,12 +16,12 @@ for i in range(0, 3):  # za nedelju 20161, za jedan dan 2881
                 k = j.text.replace(',', '')
                 a = k.replace('00 ', '')
                 cena = int(a.replace('€', ''))
-                if cena < 800 and 'gainward' not in name[count].text.casefold() and 'galax' not in name[count].text.casefold() and 'pny' not in name[count].text.casefold() and 'palit' not in name[count].text.casefold() and 'kfa' not in name[count].text.casefold() and 'colorful' not in name[count].text.casefold():
+                if cena < 646 and 'gainward' not in name[count].text.casefold() and 'galax' not in name[count].text.casefold() and 'pny' not in name[count].text.casefold() and 'palit' not in name[count].text.casefold() and 'kfa' not in name[count].text.casefold() and 'colorful' not in name[count].text.casefold():
                     account_sid = 'hidden'
                     auth_token = '0fac2f9027d4393ec08ad8fd0142905b'
                     client = Client(account_sid, auth_token)
                     message = client.messages.create(
-                        body='Grafička kartica pronadjena! - {}'.format(name[count].text.casefold()), from_='+12404340871', to='=+381695162280')
+                        body='Grafička kartica pronadjena! - kupujemprodajem - {}'.format(name[count].text.casefold()), from_='+12404340871', to='=+381695162280')
                     break
                 else:
                     count += 1

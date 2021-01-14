@@ -4,28 +4,29 @@ from time import sleep
 from twilio.rest import Client
 
 driver = webdriver.Chrome(executable_path=r"C:\chromedriver.exe")
-driver.get("https://viphouse.rs/search?q=3070")
+driver.get("https://www.eponuda.com/graficke-kartice-cene/1/f6_0~f10_1-4")
+count = -1
 
 for i in range(0, 11):  # za nedelju 20161, za jedan dan 2881
     try:
-        # provera da li uopste prikazuje nesto u pretrazi
-        element = driver.find_elements_by_class_name("content-product-list")
-        # provera da li prikazuje ali nema na zalihama se ne moze implementirati
-        price = driver.find_elements_by_tag_name("strong")
-
+        price = driver.find_elements_by_class_name('b-paging-product__price')
+        ime = driver.find_elements_by_class_name('b-paging-product__title')
         for j in price:
+            count += 1
             k = j.text.replace('.', '')
-            cena = int(k.replace(' RSD', ''))
-            if cena < 76000:  # previse
+            f = k.replace('din', '')
+            s = f.replace(' ', '')
+            cena = s[:5]
+            if int(cena) < 76000 and '3070' in ime[count].text:  # previse
                 account_sid = 'hidden'
                 auth_token = 'hidden'
                 client = Client(account_sid, auth_token)
+
                 message = client.messages.create(
-                    body='Grafička kartica pronadjena! - viphouse', from_='hidden', to='hidden')
+                    body='Grafička kartica pronadjena! - winwin', from_='hidden', to='hidden')
                 break
             else:
                 continue
-
         break
     except NoSuchElementException as exception:
         sleep(30)
