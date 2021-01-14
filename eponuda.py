@@ -23,7 +23,7 @@ for i in range(0, 11):  # za nedelju 20161, za jedan dan 2881
                 client = Client(account_sid, auth_token)
 
                 message = client.messages.create(
-                    body='Grafička kartica pronadjena! - winwin', from_='hidden', to='hidden')
+                    body='Grafička kartica pronadjena! - eponuda - {}'.format(ime[count].text), from_='hidden', to='hidden')
                 break
             else:
                 continue
