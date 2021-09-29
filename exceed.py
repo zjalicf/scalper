@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
-from twilio.rest import Client
+# from twilio.rest import Client
 
 driver = webdriver.Chrome(executable_path=r"C:\chromedriver.exe")
 driver.get(
@@ -14,10 +14,10 @@ for i in range(0, 11):  # za nedelju 20161, za jedan dan 2881
             if '3070' in j.text.casefold().replace(' ', ''):
                 account_sid = 'hidden'
                 auth_token = 'hidden'
-                client = Client(account_sid, auth_token)
+                # client = Client(account_sid, auth_token)
 
-                message = client.messages.create(
-                    body='Grafička kartica pronadjena! - exceed', from_='hidden', to='hidden')
+                # message = client.messages.create(
+                    # body='Grafička kartica pronadjena! - exceed', from_='hidden', to='hidden')
                 break
             else:
                 continue
